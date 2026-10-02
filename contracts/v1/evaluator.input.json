@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "prediction": {
+      "type": "number",
+      "minimum": -1e+40,
+      "maximum": 1e+40
+    },
+    "target": {
+      "type": "number",
+      "minimum": -1e+40,
+      "maximum": 1e+40
+    }
+  },
+  "required": [
+    "prediction",
+    "target"
+  ],
+  "additionalProperties": false
+}
