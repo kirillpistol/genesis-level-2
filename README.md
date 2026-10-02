@@ -68,3 +68,9 @@ Baselines фиксируются commit-ами в core ci/baselines.json; схе
 Решения по ролям, deprecation /v1 и rollback:
 [ADR-0002](https://github.com/kirillpistol/pistol-genesis-ai/blob/main/docs/adr/0002-transfer-roles-ci.md).
 Оценка по-прежнему без обучения, весов и автоматической проверки отсутствия утечки.
+
+## Ручные пакеты со строгими связками
+
+`level2_algorithms.bindings_demo` экспортирует REGISTRY и PACKAGE_SPECS для двух независимых идентификаторов sector-a.numeric и sector-b.numeric. Это демонстрационные агрегаторы, не обученные отраслевые модели. PACKAGE_SPECS содержит algorithm_version, model_version, input_contract, package_sha256 фактических исходников. Для своего пакета включайте в digest все веса и ресурсы. Политика ядра вручную утверждает один точный пакет и его manifest; переобучение вручную выпускает новую версию.
+
+[Запуск трёх уровней](https://github.com/kirillpistol/pistol-genesis-ai#строгая-ручная-связка-рабочий-локальный-тест), [ADR-0003](https://github.com/kirillpistol/pistol-genesis-ai/blob/main/docs/adr/0003-manual-bindings.md). Автоматического обучения и обмена между алгоритмами нет.
