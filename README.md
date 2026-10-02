@@ -58,3 +58,13 @@ Snapshot numeric/1 или evaluator/1 восстанавливается тол�
 
 Решения по транспорту и границам: [ADR-0001](https://github.com/kirillpistol/pistol-genesis-ai/blob/main/docs/adr/0001-transport-boundaries-versioning.md).
 Внешние источники: [уровень 3](https://github.com/kirillpistol/genesis-level-3).
+
+## Интеграционная проверка
+
+.github/workflows/integration.yml запускает тесты всех трёх репозиториев, реальный
+mTLS e2e с Adapter и snapshot, а также старый клиент/новый сервер и наоборот.
+Baselines фиксируются commit-ами в core ci/baselines.json; схема numeric/1 не изменена.
+Сквозной сценарий проверяет count=4, mean=25, MAE=1, RMSE=1 после resume передачи.
+Решения по ролям, deprecation /v1 и rollback:
+[ADR-0002](https://github.com/kirillpistol/pistol-genesis-ai/blob/main/docs/adr/0002-transfer-roles-ci.md).
+Оценка по-прежнему без обучения, весов и автоматической проверки отсутствия утечки.
